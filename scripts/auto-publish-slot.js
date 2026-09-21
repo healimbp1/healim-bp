@@ -24,6 +24,7 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID || '2026055528';
 const args = process.argv.slice(2);
 const forceFlag = args.includes('--force');
 const allFlag = args.includes('--all');
+const dryRunFlag = args.includes('--dry-run');
 const slugArgIdx = args.indexOf('--slug');
 const targetSlug = slugArgIdx !== -1 ? args[slugArgIdx + 1] : (args[0] && !args[0].startsWith('-') ? args[0] : null);
 
@@ -48,6 +49,7 @@ function recordSent(slug) {
   const hist = getHistory();
   if (!hist.sentSlugs.includes(slug)) {
     hist.sentSlugs.push(slug);
+    hist.lastUpdated = new Date().toISOString();
     fs.writeFileSync(historyFile, JSON.stringify(hist, null, 2), 'utf8');
   }
 }
@@ -209,31 +211,41 @@ function sleep(ms) {
 
 async function publishColumn(targetCol) {
   const { slug, md, dateStr } = targetCol;
-  const { title, category, tags, html } = convertMarkdownToTistoryHTML(md, slug);
+  const match = md.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+  const frontmatterStr = match ? match[1] : '';
+  const titleMatch = frontmatterStr.match(/title:\s*"([^"]+)"/);
+  const title = titleMatch ? titleMatch[1] : slug;
+  const categoryMatch = frontmatterStr.match(/category:\s*"([^"]+)"/);
+  const category = categoryMatch ? categoryMatch[1] : '척추·관절 통증';
+
   const thumbsDir = path.join(__dirname, '..', 'static', 'thumbnails');
+  if (!fs.existsSync(thumbsDir)) {
+    fs.mkdirSync(thumbsDir, { recursive: true });
+  }
   const thumbPath = path.join(thumbsDir, `${slug}.png`);
 
   console.log(`\n🚀 [발행 처리 시작] "${title}" (${slug})`);
 
-  // Ensure thumbnail exists
-  if (!fs.existsSync(thumbPath)) {
-    console.log(`🖼️ 1:1 맞춤 카드 썸네일 생성 중: ${slug}.png`);
-    const svg = generateCleanCardSVG({
-      slug,
-      title,
-      category
-    });
-    const fontsDir = path.join(__dirname, 'fonts');
-    const resvg = new Resvg(svg, {
-      fitTo: { mode: 'width', value: 900 },
-      font: {
-        fontDirs: [fontsDir, 'C:\\Windows\\Fonts'],
-        loadSystemFonts: true,
-        defaultFontFamily: 'Pretendard'
-      }
-    });
-    fs.writeFileSync(thumbPath, resvg.render().asPng());
-  }
+  // 1. 항상 1:1 완벽 맞춤 썸네일을 최신으로 먼저 강제 생성
+  console.log(`🖼️ 1:1 맞춤 카드 썸네일 실시간 최신 생성: ${slug}.png`);
+  const svg = generateCleanCardSVG({
+    slug,
+    title,
+    category
+  });
+  const fontsDir = path.join(__dirname, 'fonts');
+  const resvg = new Resvg(svg, {
+    fitTo: { mode: 'width', value: 900 },
+    font: {
+      fontDirs: [fontsDir, 'C:\\Windows\\Fonts', '/usr/share/fonts', '/usr/local/share/fonts'],
+      loadSystemFonts: true,
+      defaultFontFamily: 'Pretendard'
+    }
+  });
+  fs.writeFileSync(thumbPath, resvg.render().asPng());
+
+  // 2. 최신 생성된 썸네일 PNG를 완벽히 내장하여 티스토리 HTML 변환
+  const { tags, html } = convertMarkdownToTistoryHTML(md, slug);
 
   const photoCaption = `🌟 <b>[해아림 정기 자동발행]</b>\n\n` +
     `📝 <b>제목:</b> <code>${title}</code>\n` +
@@ -242,6 +254,11 @@ async function publishColumn(targetCol) {
     `🏷️ <b>태그:</b> <code>${tags.join(', ')}</code>\n\n` +
     `🌐 <b>공식 사이트:</b> https://healim-bp.com/column/${slug}/\n` +
     `📄 <i>아래 전송되는 HTML 파일을 복사하여 티스토리에 그대로 붙여넣으시면 됩니다.</i>`;
+
+  if (dryRunFlag) {
+    console.log(`[DRY-RUN] Would send Telegram photo + doc for ${slug}`);
+    return;
+  }
 
   if (fs.existsSync(thumbPath)) {
     await sendTelegramPhoto(thumbPath, photoCaption);
@@ -294,6 +311,7 @@ async function autoPublishCurrentSlot() {
     });
   });
 
+  // Sort chronologically
   allColumns.sort((a, b) => a.postDate - b.postDate);
 
   if (allFlag) {
@@ -318,35 +336,38 @@ async function autoPublishCurrentSlot() {
 
   const history = getHistory();
 
-  // Find column scheduled for the current slot window today
-  // Slots: 09:00 (hour 8-10), 13:00 (hour 12-14), 17:00 (hour 16-18), 21:00 (hour 20-22)
-  const slotCandidates = allColumns.filter(c => {
-    const colDateStr = c.dateStr.slice(0, 10);
-    const colHour = parseInt(c.dateStr.slice(11, 13), 10);
-
-    // Check if scheduled for today
-    if (colDateStr === kstDateStr) {
-      // Check if matches the current hour slot window (+/- 1.5h)
-      if (Math.abs(colHour - kstHour) <= 1) {
-        return true;
-      }
-    }
-    return false;
+  // 🌟 Fail-safe catch-up logic:
+  // Find all columns whose scheduled datetime has arrived (postDate <= now + 1 min)
+  // and that have NOT yet been recorded in publish-history.json
+  const dueUnsentColumns = allColumns.filter(c => {
+    const isDue = c.postDate.getTime() <= (now.getTime() + 60 * 1000);
+    const notSent = !history.sentSlugs.includes(c.slug);
+    return (isDue && notSent) || (isDue && forceFlag);
   });
 
-  if (slotCandidates.length > 0) {
-    for (const candidate of slotCandidates) {
-      if (!history.sentSlugs.includes(candidate.slug) || forceFlag) {
-        console.log(`🎯 [현재 슬롯 매칭 칼럼 발견] "${candidate.slug}" (예약: ${candidate.dateStr})`);
-        await publishColumn(candidate);
-        return;
-      } else {
-        console.log(`⏩ [이미 발송 완료된 칼럼 건너뜀] "${candidate.slug}"`);
+  if (dueUnsentColumns.length > 0) {
+    console.log(`🎯 [발행 대기/캐치업 칼럼 ${dueUnsentColumns.length}건 발견] 순차적으로 발행을 진행합니다...`);
+    for (let i = 0; i < dueUnsentColumns.length; i++) {
+      const col = dueUnsentColumns[i];
+      console.log(`\n▶ [${i + 1}/${dueUnsentColumns.length}] 처리 대상: ${col.slug} (예약일시: ${col.dateStr})`);
+      await publishColumn(col);
+      if (i < dueUnsentColumns.length - 1) {
+        await sleep(1500);
       }
     }
+    console.log(`\n🎉 모든 대기 칼럼(${dueUnsentColumns.length}건)의 발행 및 텔레그램 전송이 완료되었습니다.`);
+    return;
   }
 
-  console.log(`ℹ️ 현재 KST 시간대(${kstHour}시)에 새로 발송할 예약 칼럼이 없습니다.`);
+  // Find next upcoming column
+  const futureColumns = allColumns.filter(c => c.postDate.getTime() > now.getTime());
+  if (futureColumns.length > 0) {
+    const nextCol = futureColumns[0];
+    console.log(`ℹ️ 현재 시점(${kstDateStr} ${String(kstHour).padStart(2, '0')}시)에 추가로 발행할 대기 칼럼이 없습니다.`);
+    console.log(`📅 다음 예약 칼럼: "${nextCol.slug}" (예정: ${nextCol.dateStr})`);
+  } else {
+    console.log(`ℹ️ 모든 예약 칼럼이 발행 완료되었습니다.`);
+  }
 }
 
 autoPublishCurrentSlot().catch(err => {
