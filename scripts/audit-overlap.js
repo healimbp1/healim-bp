@@ -46,5 +46,5 @@ console.log(`중복 슬러그 수: ${duplicateSlugs.length}`);
 if (duplicateSlugs.length > 0) {
   duplicateSlugs.forEach(d => console.log(`  ❌ 중복 슬러그: ${d.slug}`));
 } else {
-  console.log('  ✅ 69편 전체 슬러그 100% 독립/고유함!');
+  console.log(`  ✅ ${dirs.length}편 전체 슬러그 100% 독립/고유함!`);
 }
