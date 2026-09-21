@@ -14,7 +14,7 @@ outputs:
 
 build:
   writeStats: true
-buildFuture: false
+buildFuture: true
 buildDrafts: false
 buildExpired: false
 enableGitInfo: false

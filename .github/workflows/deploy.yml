@@ -79,6 +79,7 @@ jobs:
           hugo \
             --gc \
             --minify \
+            --buildFuture \
             --baseURL "https://healim-bp.com/"
 
       - name: Upload artifact
