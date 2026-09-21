@@ -20,55 +20,74 @@ function convertMarkdownToTistoryHTML(mdContent, slug) {
     tags = tagsMatch[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, ''));
   }
 
-  // Strip callout box and footer at the bottom completely
-  bodyStr = bodyStr.replace(/<div class="callout-box">[\s\S]*$/gi, '');
-  bodyStr = bodyStr.replace(/🏥\s*해아림한의원 부평점[\s\S]*$/gi, '');
-  bodyStr = bodyStr.replace(/증상은 몸이 보내는[\s\S]*$/gi, '');
+  // 0. Strip summary cards, callout boxes, and footer signatures from the bottom cleanly
+  bodyStr = bodyStr.replace(/<div class="column-summary-card[\s\S]*$/gi, '');
+  bodyStr = bodyStr.replace(/<div class="summary-card[\s\S]*$/gi, '');
+  bodyStr = bodyStr.replace(/<div class="callout-box[\s\S]*$/gi, '');
 
-  // 1. Extract voice lines
+  // 1. Extract voice lines (supports both voice-box and column-voice-box)
   let voiceLinesHTML = '';
-  const voiceMatch = bodyStr.match(/<div class="voice-box">([\s\S]*?)<\/div>/i);
+  const voiceMatch = bodyStr.match(/<div class="(?:column-)?voice-box">([\s\S]*?)<\/div>/i);
   if (voiceMatch) {
-    const rawLines = voiceMatch[1].match(/<div class="voice-line">(.*?)<\/div>/gi) || [];
-    const lines = rawLines.map(l => l.replace(/<\/?div[^>]*>/gi, '').trim());
+    const rawLines = voiceMatch[1].match(/(?:<div class="voice-line">|<p class="voice-desc">)(.*?)<\/(?:div|p)>/gi) || [];
+    const lines = rawLines.map(l => l.replace(/<\/?(?:div|p)[^>]*>/gi, '').trim());
     voiceLinesHTML = lines.map(l => `${l}`).join('<br><br>');
-    bodyStr = bodyStr.replace(/<div class="voice-box">[\s\S]*?<\/div>/i, '');
+    bodyStr = bodyStr.replace(/<div class="(?:column-)?voice-box">[\s\S]*?<\/div>/i, '');
   }
 
-  // 2. Extract intro
-  let introHTML = '';
-  const introMatch = bodyStr.match(/<div class="intro-body">([\s\S]*?)<\/div>/i);
-  if (introMatch) {
-    const ps = introMatch[1].match(/<p>([\s\S]*?)<\/p>/gi) || [];
-    introHTML = ps.map(p => {
-      let cleanP = p.replace(/<\/?p>/gi, '').trim();
-      cleanP = cleanP.replace(/\[(.*?)\]/g, '<strong style="color: #1E4638; font-weight: 700;">$1</strong>');
-      cleanP = cleanP.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #1E4638; font-weight: 700;">$1</strong>');
-      return `<p style="font-size: 16px; line-height: 1.85; color: #374151; margin-bottom: 18px; word-break: keep-all; font-style: normal;">${cleanP}</p>`;
-    }).join('\n  ');
-    bodyStr = bodyStr.replace(/<div class="intro-body">[\s\S]*?<\/div>/i, '');
-  }
-
-  // 3. Extract TOC
+  // 2. Extract TOC (supports both .toc and .column-toc-box)
   let tocBoxHTML = '';
-  const tocMatch = bodyStr.match(/<div class="toc">([\s\S]*?<\/ol>\s*<\/div>)/i);
+  const tocMatch = bodyStr.match(/<div class="(?:column-)?toc(?:-box)?[\s\S]*?<\/div>/i);
   if (tocMatch) {
-    const lis = tocMatch[1].match(/<li>([\s\S]*?)<\/li>/gi) || [];
+    const lis = tocMatch[0].match(/<li>([\s\S]*?)<\/li>/gi) || [];
     const tocItems = lis.map((li, idx) => {
-      const text = li.replace(/<\/?li>/gi, '').trim();
+      let text = li.replace(/<\/?li>/gi, '').replace(/^[•\-\*]\s*/, '').trim();
+      text = text.replace(/^\d+\.\s*/, '');
       const num = String(idx + 1).padStart(2, '0');
       return `    <div style="display: flex; align-items: flex-start; margin-bottom: 9px; font-size: 15px; line-height: 1.6; color: #374151; word-break: keep-all;"><span style="color: #2F5D50; font-weight: 800; margin-right: 10px; flex-shrink: 0;">${num}.</span><span>${text}</span></div>`;
     }).join('\n');
 
     tocBoxHTML = `<div style="background-color: #F8FAF9; border: 1px solid #E2EAE5; border-radius: 12px; padding: 22px 24px; margin: 30px 0 34px 0; font-style: normal;">
-    <div style="font-size: 16.5px; font-weight: 800; color: #1E4638; margin-bottom: 14px; letter-spacing: -0.01em;">📌 이 칼럼에서 다루는 6대 핵심 목차</div>
+    <div style="font-size: 16.5px; font-weight: 800; color: #1E4638; margin-bottom: 14px; letter-spacing: -0.01em;">📌 이 칼럼에서 다루는 핵심 목차</div>
 ${tocItems}
   </div>`;
-    bodyStr = bodyStr.replace(/<div class="toc">[\s\S]*?<\/ol>\s*<\/div>/i, '');
+    bodyStr = bodyStr.replace(/<div class="(?:column-)?toc(?:-box)?[\s\S]*?<\/div>/i, '');
+  }
+
+  // 3. Extract Intro (everything before the first ### section)
+  let introHTML = '';
+  const firstSectionIdx = bodyStr.search(/\n(?=###\s+)/);
+  let introPart = firstSectionIdx !== -1 ? bodyStr.substring(0, firstSectionIdx).trim() : '';
+  let remainingBody = firstSectionIdx !== -1 ? bodyStr.substring(firstSectionIdx).trim() : bodyStr;
+
+  if (introPart) {
+    // If wrapped in <div class="intro-body">...</div>
+    introPart = introPart.replace(/<div class="intro-body">/gi, '').replace(/<\/div>/gi, '');
+    
+    // Split into paragraphs (either <p> tags or newline-separated paragraphs)
+    const introParagraphs = [];
+    const pTagMatches = introPart.match(/<p[^>]*>([\s\S]*?)<\/p>/gi);
+    if (pTagMatches && pTagMatches.length > 0) {
+      pTagMatches.forEach(p => {
+        let cleanP = p.replace(/<\/?p[^>]*>/gi, '').trim();
+        if (cleanP) introParagraphs.push(cleanP);
+      });
+    } else {
+      introPart.split(/\n\s*\n/).forEach(p => {
+        let cleanP = p.trim();
+        if (cleanP) introParagraphs.push(cleanP);
+      });
+    }
+
+    introHTML = introParagraphs.map(pText => {
+      pText = pText.replace(/\[(.*?)\]/g, '<strong style="color: #1E4638; font-weight: 700;">$1</strong>');
+      pText = pText.replace(/\*\*(.*?)\*\*/g, '<strong style="color: #1E4638; font-weight: 700;">$1</strong>');
+      return `<p style="font-size: 16px; line-height: 1.85; color: #374151; margin-bottom: 18px; word-break: keep-all; font-style: normal;">${pText}</p>`;
+    }).join('\n  ');
   }
 
   // 4. Parse sections
-  const sections = bodyStr.split(/\n(?=###\s+)/);
+  const sections = remainingBody.split(/\n(?=###\s+)/);
   let parsedSectionsHTML = '';
 
   const sectionIcons = ['🌿', '🔍', '📚', '🩺', '💡', '❓'];
@@ -207,13 +226,9 @@ ${tocItems}
 
 // Convert FAQ text into beautiful Card UI boxes matching healimbp.tistory.com/46
 function formatFAQSection(content) {
-  // Strip any bottom callout box or clinic footer
-  content = content.replace(/<div[\s\S]*$/gi, '');
-  content = content.replace(/---[\s\S]*$/gi, '');
-  content = content.replace(/🏥[\s\S]*$/gi, '');
-  content = content.replace(/증상은 몸이 보내는[\s\S]*$/gi, '');
-  content = content.replace(/한방침구과 전문의 권형근[\s\S]*$/gi, '');
-  content = content.replace(/위치:\s*인천[\s\S]*$/gi, '');
+  content = content.replace(/<div class="column-summary-card[\s\S]*$/gi, '');
+  content = content.replace(/<div class="summary-card[\s\S]*$/gi, '');
+  content = content.replace(/<div class="callout-box[\s\S]*$/gi, '');
 
   const qnaBlocks = [];
   const lines = content.split('\n');
@@ -310,6 +325,11 @@ function parseSectionBlocks(content) {
       flushP();
       flushList();
       outputBlocks.push(rawLine);
+      continue;
+    }
+
+    // Ignore raw summary cards or closing tags if any leaked
+    if (line.startsWith('<div class="column-summary') || line.startsWith('</div>') || line.startsWith('<h3 class="text-xl') || line.startsWith('<i class="fa-solid')) {
       continue;
     }
 
