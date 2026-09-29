@@ -129,16 +129,16 @@ sections:
             </div>
           </div>
 
-          <div class="flex flex-wrap gap-3 pt-4 border-t border-slate-200">
-            <a href="https://map.naver.com/p/search/%ED%95%B4%EC%95%84%EB%A6%BC%ED%95%9C%EC%9D%98%EC%9B%90%20%EC%9D%B8%EC%B2%9C%EB%B6%80%ED%8F%89%EC%A0%90" target="_blank" rel="noopener" class="heal-btn heal-btn-naver flex-1 min-w-[180px]">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-4 border-t border-slate-200">
+            <a href="https://map.naver.com/p/search/%ED%95%B4%EC%95%84%EB%A6%BC%ED%95%9C%EC%9D%98%EC%9B%90%20%EC%9D%B8%EC%B2%9C%EB%B6%80%ED%8F%89%EC%A0%90" target="_blank" rel="noopener" class="heal-btn heal-btn-naver w-full">
               <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.5 3h-15C3.1 3 2 4.1 2 5.5v13C2 19.9 3.1 21 4.5 21h15c1.4 0 2.5-1.1 2.5-2.5v-13C22 4.1 20.9 3 19.5 3zm-9.3 12.9H7.4V8.1h2.8v7.8zm6.6 0h-2.8l-3.3-4.9v4.9H8.2V8.1h2.8l3.3 4.9V8.1h2.5v7.8z"/></svg>
               네이버 지도 길찾기
             </a>
-            <a href="https://map.kakao.com/?q=%ED%95%B4%EC%95%84%EB%A6%BC%ED%95%9C%EC%9D%98%EC%9B%90%20%EC%9D%B8%EC%B2%9C%EB%B6%80%ED%8F%89%EC%A0%90" target="_blank" rel="noopener" class="heal-btn heal-btn-kakao flex-1 min-w-[180px]">
+            <a href="https://map.kakao.com/?q=%ED%95%B4%EC%95%84%EB%A6%BC%ED%95%9C%EC%9D%98%EC%9B%90%20%EC%9D%B8%EC%B2%9C%EB%B6%80%ED%8F%89%EC%A0%90" target="_blank" rel="noopener" class="heal-btn heal-btn-kakao w-full">
               <i class="fa-solid fa-map-location-dot mr-1.5"></i>
               카카오맵 길찾기
             </a>
-            <a href="tel:032-719-3472" class="heal-btn heal-btn-primary flex-1 min-w-[180px]">
+            <a href="tel:032-719-3472" class="heal-btn heal-btn-primary w-full">
               <i class="fa-solid fa-phone mr-1.5"></i>
               전화 안내 032-719-3472
             </a>
@@ -146,8 +146,8 @@ sections:
         </div>
 
         <!-- 4. 하단 예약 CTA -->
-        <div class="heal-card-primary text-center p-8 sm:p-12 mb-8">
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">방문 전 예약하시면 대기 시간을 최소화하실 수 있습니다</h3>
+        <div class="heal-card-primary text-center p-6 sm:p-8 md:p-12 mb-8">
+          <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-3">방문 전 예약하시면 대기 시간을 최소화하실 수 있습니다</h3>
           <p class="text-xs sm:text-sm text-white/90 max-w-xl mx-auto mb-8">네이버 실시간 예약 또는 전화로 원하시는 시간을 미리 예약해 주시면 더욱 신속하게 진료받으실 수 있습니다.</p>
           <div class="flex flex-wrap justify-center gap-3">
             <a href="https://booking.naver.com/booking/13/bizes/934695" target="_blank" rel="noopener" class="heal-btn heal-btn-naver">

@@ -25,7 +25,7 @@ sections:
                 </span>
               </div>
               
-              <h1 class="text-3xl sm:text-4xl md:text-[2.85rem] font-extrabold tracking-tight leading-[1.25] mb-5 text-slate-900">
+              <h1 class="text-2xl sm:text-4xl md:text-[2.85rem] font-extrabold tracking-tight leading-[1.25] mb-5 text-slate-900">
                 척추·통증·교통사고부터 만성 기침까지<br>
                 <span style="color: var(--sage); font-weight: 900;">몸과 마음을 함께 헤아리는 통합진료</span>
               </h1>
@@ -430,47 +430,49 @@ sections:
           
           <!-- 진료시간표 -->
           <div class="md:col-span-6 heal-card">
-            <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
               <i class="fa-solid fa-clock text-[#2F5D50]"></i>
               진료시간 안내
             </h3>
-            <table class="heal-table text-xs sm:text-sm">
-              <thead>
-                <tr>
-                  <th>구분</th>
-                  <th>진료 시간</th>
-                  <th>안내 사항</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="font-bold text-[#2F5D50]">월 · 수 · 금</td>
-                  <td class="font-bold">10:00 ~ 20:00</td>
-                  <td class="text-xs text-[#2F5D50] font-semibold">직장인 야간진료</td>
-                </tr>
-                <tr>
-                  <td class="font-bold">화 요 일</td>
-                  <td>10:00 ~ 19:00</td>
-                  <td class="text-xs text-slate-500">일반 진료</td>
-                </tr>
-                <tr>
-                  <td class="font-bold">토 요 일</td>
-                  <td class="font-semibold">09:00 ~ 15:00</td>
-                  <td class="text-xs text-emerald-600 font-semibold">점심시간 없음</td>
-                </tr>
-                <tr>
-                  <td class="font-bold">공 휴 일</td>
-                  <td class="font-semibold text-[#2F5D50]">09:00 ~ 13:00</td>
-                  <td class="text-xs text-[#2F5D50] font-semibold">점심시간 없음</td>
-                </tr>
-                <tr>
-                  <td>목 · 일요일</td>
-                  <td class="text-rose-500 font-medium">정기 휴진</td>
-                  <td class="text-xs text-slate-400">휴진</td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="text-xs text-slate-500 mt-4 bg-[#FAF8F3] p-3 rounded-xl border border-[#DDE6E1]">
+            <div class="heal-table-wrapper">
+              <table class="heal-table">
+                <thead>
+                  <tr>
+                    <th>구분</th>
+                    <th>진료 시간</th>
+                    <th>안내 사항</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-bold text-[#2F5D50]">월 · 수 · 금</td>
+                    <td class="font-bold">10:00 ~ 20:00</td>
+                    <td class="text-xs text-[#2F5D50] font-semibold">직장인 야간진료</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">화 요 일</td>
+                    <td>10:00 ~ 19:00</td>
+                    <td class="text-xs text-slate-500">일반 진료</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">토 요 일</td>
+                    <td class="font-semibold">09:00 ~ 15:00</td>
+                    <td class="text-xs text-emerald-600 font-semibold">점심시간 없음</td>
+                  </tr>
+                  <tr>
+                    <td class="font-bold">공 휴 일</td>
+                    <td class="font-semibold text-[#2F5D50]">09:00 ~ 13:00</td>
+                    <td class="text-xs text-[#2F5D50] font-semibold">점심시간 없음</td>
+                  </tr>
+                  <tr>
+                    <td>목 · 일요일</td>
+                    <td class="text-rose-500 font-medium">정기 휴진</td>
+                    <td class="text-xs text-slate-400">휴진</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-slate-500 mt-3 bg-[#FAF8F3] p-3 rounded-xl border border-[#DDE6E1]">
               ※ <strong>평일 점심시간</strong>: 13:00 ~ 14:00 (토·공휴일 점심시간 없음 / 매주 목·일 정기휴진)
             </p>
           </div>
@@ -478,13 +480,13 @@ sections:
           <!-- 찾아오시는 길 -->
           <div class="md:col-span-6 heal-card flex flex-col justify-between">
             <div>
-              <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                 <i class="fa-solid fa-location-dot text-[#2F5D50]"></i>
                 찾아오시는 길 & 주차 안내
               </h3>
-              <div class="p-4 rounded-xl bg-[#FAF8F3] border border-[#DDE6E1] mb-3">
+              <div class="p-3 sm:p-4 rounded-xl bg-[#FAF8F3] border border-[#DDE6E1] mb-3">
                 <span class="text-xs font-bold text-slate-500 block mb-0.5">도로명 주소</span>
-                <p class="text-sm font-bold text-slate-900">인천광역시 부평구 경원대로 1412, 2층 (부평동 534-48)</p>
+                <p class="text-xs sm:text-sm font-bold text-slate-900">인천광역시 부평구 경원대로 1412, 2층 (부평동 534-48)</p>
               </div>
               <p class="text-xs text-slate-600 leading-relaxed mb-3">
                 • <strong>지하철</strong>: 1호선·인천1호선 <strong>부평역 7번 출구(북광장)</strong> 도보 5분 (스타벅스 방면 350m)<br>
@@ -492,16 +494,16 @@ sections:
               </p>
             </div>
             
-            <div class="flex flex-wrap gap-2 pt-3 border-t border-slate-200">
-              <a href="https://map.naver.com/p/search/%ED%95%B4%EC%95%84%EB%A6%BC%ED%95%9C%EC%9D%98%EC%9B%90%20%EC%9D%B8%EC%B2%9C%EB%B6%80%ED%8F%89%EC%A0%90" target="_blank" rel="noopener" class="heal-btn heal-btn-naver flex-1 text-xs py-2.5">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-3 border-t border-slate-200">
+              <a href="https://map.naver.com/p/search/%ED%95%B4%EC%95%84%EB%A6%BC%ED%95%9C%EC%9D%98%EC%9B%90%20%EC%9D%B8%EC%B2%9C%EB%B6%80%ED%8F%89%EC%A0%90" target="_blank" rel="noopener" class="heal-btn heal-btn-naver w-full text-xs py-2.5">
                 <svg class="w-3.5 h-3.5 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M19.5 3h-15C3.1 3 2 4.1 2 5.5v13C2 19.9 3.1 21 4.5 21h15c1.4 0 2.5-1.1 2.5-2.5v-13C22 4.1 20.9 3 19.5 3zm-9.3 12.9H7.4V8.1h2.8v7.8zm6.6 0h-2.8l-3.3-4.9v4.9H8.2V8.1h2.8l3.3 4.9V8.1h2.5v7.8z"/></svg>
-                네이버 지도 길찾기
+                네이버 지도
               </a>
-              <a href="https://map.kakao.com/?q=%ED%95%B4%EC%95%84%EB%A6%BC%ED%95%9C%EC%9D%98%EC%9B%90%20%EC%9D%B8%EC%B2%9C%EB%B6%80%ED%8F%89%EC%A0%90" target="_blank" rel="noopener" class="heal-btn heal-btn-kakao flex-1 text-xs py-2.5">
+              <a href="https://map.kakao.com/?q=%ED%95%B4%EC%95%84%EB%A6%BC%ED%95%9C%EC%9D%98%EC%9B%90%20%EC%9D%B8%EC%B2%9C%EB%B6%80%ED%8F%89%EC%A0%90" target="_blank" rel="noopener" class="heal-btn heal-btn-kakao w-full text-xs py-2.5">
                 <i class="fa-solid fa-map-location-dot mr-1"></i>
-                카카오맵 길찾기
+                카카오맵
               </a>
-              <a href="tel:032-719-3472" class="heal-btn heal-btn-primary flex-1 text-xs py-2.5">
+              <a href="tel:032-719-3472" class="heal-btn heal-btn-primary w-full text-xs py-2.5">
                 <i class="fa-solid fa-phone mr-1"></i>
                 전화 상담
               </a>
@@ -511,17 +513,17 @@ sections:
         </div>
 
         <!-- 9. 하단 와이드 CTA 배너 -->
-        <div class="heal-card-primary text-center p-8 sm:p-12 mb-8">
+        <div class="heal-card-primary text-center p-6 sm:p-8 md:p-12 mb-8">
           <span class="heal-hero-badge bg-white/20 text-white border border-white/30 mb-4">
             1:1 맞춤 책임 진료
           </span>
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-3 leading-snug">
+          <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-3 leading-snug">
             통증과 만성 질환, 참지 마시고<br>해아림 부평점과 편안하게 상의하세요
           </h3>
           <p class="text-xs sm:text-sm text-white/90 max-w-xl mx-auto mb-8 leading-relaxed">
             월·수·금 저녁 8시까지 야간진료로 퇴근 후에도 여유롭게 진료받으실 수 있습니다. 사전 예약 시 대기 시간을 최소화하실 수 있습니다.
           </p>
-          <div class="flex flex-wrap justify-center gap-3">
+          <div class="flex flex-wrap justify-center gap-2.5 sm:gap-3">
             <a href="https://booking.naver.com/booking/13/bizes/934695" target="_blank" rel="noopener" class="heal-btn heal-btn-naver">
               <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.5 3h-15C3.1 3 2 4.1 2 5.5v13C2 19.9 3.1 21 4.5 21h15c1.4 0 2.5-1.1 2.5-2.5v-13C22 4.1 20.9 3 19.5 3zm-9.3 12.9H7.4V8.1h2.8v7.8zm6.6 0h-2.8l-3.3-4.9v4.9H8.2V8.1h2.8l3.3 4.9V8.1h2.5v7.8z"/></svg>
               네이버 실시간 예약
