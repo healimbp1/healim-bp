@@ -63,43 +63,34 @@
       {{ end }}
     </ul>
 
-    <!-- 3. 우측 액션 버튼 영역 (모바일 3대 퀵버튼 & 데스크톱 CTA) -->
-    <div class="flex items-center gap-1 sm:gap-2 shrink-0">
-      <!-- 모바일 전용 3대 퀵버튼: 전화, 카톡, 네이버예약 -->
-      <div class="flex items-center gap-0.5 sm:gap-1.5 lg:hidden">
+      <!-- 모바일 전용 퀵 버튼 (네이버 예약 + 전화상담 + 햄버거 메뉴) -->
+      <div class="flex items-center gap-1 sm:gap-1.5 lg:hidden">
+        <!-- 📅 네이버 예약 -->
+        <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-xl flex items-center justify-center text-[#03C75A] bg-[#03C75A]/10 hover:bg-[#03C75A]/20 active:scale-95 transition shrink-0" title="네이버 실시간 예약">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/>
+          </svg>
+        </a>
+
         <!-- 📞 전화상담 -->
-        <a href="{{ $phoneUrl }}" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl flex items-center justify-center text-[#5C4033] hover:bg-[#F2F4F3] active:scale-95 transition" title="전화 상담 바로연결">
-          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
+        <a href="{{ $phoneUrl }}" class="w-8 h-8 rounded-xl flex items-center justify-center text-[#2F5D50] bg-[#2F5D50]/10 hover:bg-[#2F5D50]/20 active:scale-95 transition shrink-0" title="전화 상담 바로연결">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
           </svg>
         </a>
 
-        <!-- 💬 카카오톡 1:1 상담 -->
-        <a href="{{ $kakaoUrl }}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl flex items-center justify-center text-[#3B1E1E] hover:bg-[#FEE500]/20 active:scale-95 transition" title="카카오톡 1:1 상담">
-          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M12 3c-5.52 0-10 3.58-10 8 0 2.85 1.86 5.35 4.67 6.72-.21.78-.77 2.84-.88 3.28-.14.54.2.53.42.39.29-.19 3.88-2.64 4.54-3.1.41.06.83.09 1.25.09 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/>
+        <!-- 모바일 햄버거 메뉴 토글 버튼 -->
+        <button id="mobile-menu-btn" type="button" onclick="toggleHealimMenu(event)" class="w-8 h-8 rounded-xl text-[#2F5D50] hover:bg-[#EAF3EF] active:scale-95 transition flex items-center justify-center focus:outline-none cursor-pointer select-none shrink-0" aria-label="메뉴 열기" aria-expanded="false" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;">
+          <!-- 햄버거 아이콘 -->
+          <svg id="hamburger-icon" class="w-5 h-5 fill-none stroke-current stroke-2 pointer-events-none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
-        </a>
-
-        <!-- 📅 네이버 예약 -->
-        <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl flex items-center justify-center text-[#03C75A] hover:bg-[#03C75A]/10 active:scale-95 transition" title="네이버 실시간 예약">
-          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z"/>
+          <!-- 닫기(X) 아이콘 -->
+          <svg id="close-icon" class="w-5 h-5 fill-none stroke-current stroke-2 pointer-events-none" style="display: none;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
           </svg>
-        </a>
+        </button>
       </div>
-
-      <!-- 모바일 햄버거 메뉴 토글 버튼 -->
-      <button id="mobile-menu-btn" type="button" onclick="toggleHealimMenu(event)" class="p-1 sm:p-1.5 rounded-lg sm:rounded-xl text-[#2F5D50] hover:bg-[#EAF3EF] active:scale-95 lg:hidden transition flex items-center justify-center focus:outline-none cursor-pointer select-none" aria-label="메뉴 열기" aria-expanded="false" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;">
-        <!-- 햄버거 아이콘 -->
-        <svg id="hamburger-icon" class="w-6 h-6 fill-none stroke-current stroke-2 pointer-events-none" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <!-- 닫기(X) 아이콘 -->
-        <svg id="close-icon" class="w-6 h-6 fill-none stroke-current stroke-2 pointer-events-none" style="display: none;" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
 
       <!-- 데스크톱 전용 네이버 예약 & 빠른상담 CTA -->
       <div class="hidden lg:flex items-center gap-1.5">

@@ -34,21 +34,21 @@ sections:
                 틀어진 체형과 만성 염증의 뿌리를 1:1로 짚어냅니다. 불필요한 과잉 진료 없이, <strong>한방침구과 전문의 권형근 대표원장</strong>이 꼭 필요한 한방 맞춤 치료로 부평 이웃분들의 편안한 일상을 되찾아드립니다.
               </p>
               
-              <div class="flex flex-wrap gap-3 items-center mb-8">
-                <a href="https://booking.naver.com/booking/13/bizes/934695" target="_blank" rel="noopener" class="heal-btn heal-btn-naver">
-                  <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.5 3h-15C3.1 3 2 4.1 2 5.5v13C2 19.9 3.1 21 4.5 21h15c1.4 0 2.5-1.1 2.5-2.5v-13C22 4.1 20.9 3 19.5 3zm-9.3 12.9H7.4V8.1h2.8v7.8zm6.6 0h-2.8l-3.3-4.9v4.9H8.2V8.1h2.8l3.3 4.9V8.1h2.5v7.8z"/></svg>
-                  네이버 간편예약
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap gap-2.5 sm:gap-3 items-center mb-8 max-w-2xl">
+                <a href="https://booking.naver.com/booking/13/bizes/934695" target="_blank" rel="noopener" class="heal-btn heal-btn-naver w-full sm:w-auto">
+                  <svg class="w-4 h-4 mr-1.5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M19.5 3h-15C3.1 3 2 4.1 2 5.5v13C2 19.9 3.1 21 4.5 21h15c1.4 0 2.5-1.1 2.5-2.5v-13C22 4.1 20.9 3 19.5 3zm-9.3 12.9H7.4V8.1h2.8v7.8zm6.6 0h-2.8l-3.3-4.9v4.9H8.2V8.1h2.8l3.3 4.9V8.1h2.5v7.8z"/></svg>
+                  <span>네이버 간편예약</span>
                 </a>
-                <a href="tel:032-719-3472" class="heal-btn heal-btn-primary">
-                  <i class="fa-solid fa-phone mr-1.5 text-xs"></i>
-                  전화 상담 032-719-3472
+                <a href="tel:032-719-3472" class="heal-btn heal-btn-primary w-full sm:w-auto">
+                  <i class="fa-solid fa-phone mr-1.5 text-xs shrink-0"></i>
+                  <span>전화 상담 032-719-3472</span>
                 </a>
-                <a href="https://pf.kakao.com/_Tcxcxoxj" target="_blank" rel="noopener" class="heal-btn heal-btn-kakao">
-                  <i class="fa-solid fa-comment mr-1.5 text-xs"></i>
-                  카카오톡 1:1 상담
+                <a href="https://pf.kakao.com/_Tcxcxoxj" target="_blank" rel="noopener" class="heal-btn heal-btn-kakao w-full sm:w-auto">
+                  <i class="fa-solid fa-comment mr-1.5 text-xs shrink-0"></i>
+                  <span>카카오톡 1:1 상담</span>
                 </a>
-                <a href="/location/" class="heal-btn heal-btn-secondary">
-                  오시는 길 안내 →
+                <a href="/location/" class="heal-btn heal-btn-secondary w-full sm:w-auto">
+                  <span>오시는 길 안내 →</span>
                 </a>
               </div>
               

@@ -497,12 +497,30 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: 0.4rem;
     box-sizing: border-box;
   }
   @media (min-width: 640px) {
     .heal-floating-container {
       gap: 0.75rem;
+    }
+  }
+
+  .heal-floating-bar .heal-btn {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    padding: 0.65rem 0.2rem !important;
+    font-size: 0.8125rem !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+  }
+  @media (min-width: 640px) {
+    .heal-floating-bar .heal-btn {
+      padding: 0.75rem 1rem !important;
+      font-size: 0.875rem !important;
     }
   }
 
@@ -696,6 +714,15 @@
   /* ==========================================================================
      실시간 진료 상태 뱃지 (Garden Clinic 스타일 & 해아림 프리미엄 테마)
      ========================================================================== */
+  #clinicStatus {
+    display: none !important;
+  }
+  @media (min-width: 1200px) {
+    #clinicStatus {
+      display: inline-flex !important;
+    }
+  }
+
   .clinic-status-badge {
     display: inline-flex;
     align-items: center;
