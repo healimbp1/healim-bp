@@ -11,7 +11,7 @@
     "publish:all": "node scripts/auto-publish-slot.js --all",
     "publish:auto": "node scripts/publish-and-deploy.js",
     "publish:daemon": "node scripts/publish-daemon.js",
-    "deploy": "hugo --minify && npx wrangler pages deploy public --project-name=healimbp --branch=main --commit-dirty=true",
+    "deploy": "hugo --minify && npx wrangler pages deploy public --project-name=healim-clinic --branch=main --commit-dirty=true",
     "send:telegram": "node scripts/send-to-telegram.js",
     "thumbnails:build": "node scripts/build-all-exact-thumbnails.js",
     "validate": "node scripts/validate_all_articles.js"
