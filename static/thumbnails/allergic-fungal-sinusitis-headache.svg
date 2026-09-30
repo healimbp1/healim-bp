@@ -19,7 +19,7 @@
   <g transform="translate(450, 64)">
     <rect x="-190" y="-22" width="380" height="44" rx="22" fill="#0d9488" />
     <text x="0" y="6" font-size="16.5" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      호흡기·보폐고
+      만성기침·호흡기 &amp; 보폐고 클리닉
     </text>
   </g>
 
@@ -33,7 +33,7 @@
   <g transform="translate(90, 155)">
     <rect x="0" y="0" width="620" height="38" rx="8" fill="#ecfdf5" />
     <text x="16" y="25" font-size="15.5" font-weight="900" fill="#047857" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      만성화되기 전 원인부터 바로잡는 1:1 맞춤 진료
+      코 안에서 썩은 냄새가 나고 진하고 누런 콧물이 몇 달째 멈추지 않…
     </text>
   </g>
 
@@ -47,7 +47,7 @@
   <!-- 3. Subtitle Description -->
   <g transform="translate(90, 275)">
     <text font-size="18.5" font-weight="800" fill="#334155" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      정밀 진단과 비수술 한방 통합 솔루션
+      부비동 자연공이 막혀 고름이 차고 얼굴 압박감과 두통을 유발하는 만성 축농…
     </text>
   </g>
 
@@ -63,10 +63,10 @@
     <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">1</text>
     <!-- Card Text -->
     <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      근본 원인 및 체질 정밀 진단
+      부비동 자연공 폐쇄와 안면 압박통의 기전
     </text>
     <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
-      이학적 검진 및 증상별 원인 분석
+      점막 훼손도 및 기관지 민감도 평가
     </text>
   </g>
 
@@ -79,10 +79,10 @@
     <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">2</text>
     <!-- Card Text -->
     <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      맞춤 한방 침구 &amp; 정밀 약침 치료
+      한의학의 비연과 청열해독
     </text>
     <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
-      통증 완화 및 염증 배출 집중 케어
+      건조해진 점막에 진액 보충 및 마찰 진정
     </text>
   </g>
 
@@ -95,10 +95,10 @@
     <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">3</text>
     <!-- Card Text -->
     <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      체형 교정 추나 &amp; 자생력 강화 한약
+      해아림한의원 부평점의 1:1 맞춤 축농증 …
     </text>
     <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
-      재발 방지 및 전신 균형 회복
+      폐 면역력 증진 및 만성 기침 재발 차단
     </text>
   </g>
 

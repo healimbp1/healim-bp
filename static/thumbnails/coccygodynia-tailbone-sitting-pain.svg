@@ -19,7 +19,7 @@
   <g transform="translate(450, 64)">
     <rect x="-190" y="-22" width="380" height="44" rx="22" fill="#0d9488" />
     <text x="0" y="6" font-size="16.5" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      척추·관절 통증
+      척추·관절 &amp; 추나 클리닉
     </text>
   </g>
 
@@ -33,7 +33,7 @@
   <g transform="translate(90, 155)">
     <rect x="0" y="0" width="620" height="38" rx="8" fill="#ecfdf5" />
     <text x="16" y="25" font-size="15.5" font-weight="900" fill="#047857" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      만성화되기 전 원인부터 바로잡는 1:1 맞춤 진료
+      빙판길에 엉덩방아를 찧은 뒤로 의자에 엉덩이를 붙이고 앉을 수가 없…
     </text>
   </g>
 
@@ -47,7 +47,7 @@
   <!-- 3. Subtitle Description -->
   <g transform="translate(90, 275)">
     <text font-size="18.5" font-weight="800" fill="#334155" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      정밀 진단과 비수술 한방 통합 솔루션
+      낙상, 출산, 장시간 운전 후 딱딱한 의자에 앉을 때 꼬리뼈가 찌릿하고 닿…
     </text>
   </g>
 
@@ -63,10 +63,10 @@
     <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">1</text>
     <!-- Card Text -->
     <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      근본 원인 및 체질 정밀 진단
+      꼬리뼈 통증(미골통)의 주요 원인과 증상 …
     </text>
     <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
-      이학적 검진 및 증상별 원인 분석
+      이학적 검진 및 증상별 원인 정밀 감별
     </text>
   </g>
 
@@ -79,10 +79,10 @@
     <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">2</text>
     <!-- Card Text -->
     <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      맞춤 한방 침구 &amp; 정밀 약침 치료
+      한의학의 미골손상과 어혈어체(瘀…
     </text>
     <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
-      통증 완화 및 염증 배출 집중 케어
+      염증 신속 완화 및 손상 조직 재생 촉진
     </text>
   </g>
 
@@ -95,10 +95,10 @@
     <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">3</text>
     <!-- Card Text -->
     <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      체형 교정 추나 &amp; 자생력 강화 한약
+      해아림한의원 부평점의 1:1 미골 교정 추…
     </text>
     <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
-      재발 방지 및 전신 균형 회복
+      신체 균형 회복 및 자생력 강화 치료
     </text>
   </g>
 

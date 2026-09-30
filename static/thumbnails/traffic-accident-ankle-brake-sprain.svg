@@ -19,7 +19,7 @@
   <g transform="translate(450, 64)">
     <rect x="-190" y="-22" width="380" height="44" rx="22" fill="#0d9488" />
     <text x="0" y="6" font-size="16.5" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      교통사고 후유증
+      교통사고 후유증 &amp; 자동차보험 클리닉
     </text>
   </g>
 
@@ -33,7 +33,7 @@
   <g transform="translate(90, 155)">
     <rect x="0" y="0" width="620" height="38" rx="8" fill="#ecfdf5" />
     <text x="16" y="25" font-size="15.5" font-weight="900" fill="#047857" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      만성화되기 전 원인부터 바로잡는 1:1 맞춤 진료
+      앞차와 부딪히기 직전 브레이크를 온 힘을 다해 밟았는데 발목과 발바…
     </text>
   </g>
 
@@ -47,7 +47,7 @@
   <!-- 3. Subtitle Description -->
   <g transform="translate(90, 275)">
     <text font-size="18.5" font-weight="800" fill="#334155" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      정밀 진단과 비수술 한방 통합 솔루션
+      급정거 시 브레이크 페달을 강하게 밟으며 발목이 과신전·과굴곡되어 발생하는…
     </text>
   </g>
 
@@ -63,10 +63,10 @@
     <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">1</text>
     <!-- Card Text -->
     <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      근본 원인 및 체질 정밀 진단
+      급브레이크 페달 충격으로 인한 발목 손상 …
     </text>
     <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
-      이학적 검진 및 증상별 원인 분석
+      사고 충격으로 인한 근육·인대 미세 손상 감별
     </text>
   </g>
 
@@ -79,10 +79,10 @@
     <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">2</text>
     <!-- Card Text -->
     <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      맞춤 한방 침구 &amp; 정밀 약침 치료
+      한의학의 족관절 염좌와 타박…
     </text>
     <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
-      통증 완화 및 염증 배출 집중 케어
+      미세 혈종 배출 및 급성 통증 신속 완화
     </text>
   </g>
 
@@ -95,10 +95,10 @@
     <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">3</text>
     <!-- Card Text -->
     <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
-      체형 교정 추나 &amp; 자생력 강화 한약
+      해아림한의원 부평점의 자동차보험 1:1 발…
     </text>
     <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
-      재발 방지 및 전신 균형 회복
+      본인부담금 0원으로 후유증 없는 회복 케어
     </text>
   </g>
 
