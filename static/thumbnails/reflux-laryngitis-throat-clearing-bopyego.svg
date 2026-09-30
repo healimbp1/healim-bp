@@ -1,6 +1,6 @@
 <svg width="900" height="960" viewBox="0 0 900 960" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Background Gradient (Dark Teal-Navy) -->
+    <!-- Background Gradient (Deep Forest Navy) -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#081b18" />
       <stop offset="100%" stop-color="#061219" />
@@ -12,91 +12,90 @@
     </filter>
   </defs>
 
-  <!-- Outer Dark Teal/Navy Canvas -->
+  <!-- Outer Canvas -->
   <rect x="0" y="0" width="900" height="960" rx="36" fill="url(#bgGrad)" />
 
   <!-- Top Floating Pill (Teal / Forest Green) -->
-  <g transform="translate(450, 60)">
+  <g transform="translate(450, 56)">
     <rect x="-210" y="-22" width="420" height="44" rx="22" fill="#0d9488" />
-    <text x="0" y="6" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+    <text x="0" y="6" font-size="16.5" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       만성기침·호흡기 &amp; 보폐고 클리닉
     </text>
   </g>
 
   <!-- Inner Pure White Card -->
   <g filter="url(#cardShadow)">
-    <rect x="45" y="105" width="810" height="810" rx="28" fill="#ffffff" />
+    <rect x="45" y="100" width="810" height="825" rx="30" fill="#ffffff" />
   </g>
 
-  <!-- Content inside White Card -->
-  <!-- 1. Sub-Hook Pill -->
-  <g transform="translate(85, 145)">
-    <rect x="0" y="0" width="730" height="38" rx="8" fill="#ecfdf5" />
-    <text x="16" y="24" font-size="14" font-weight="900" fill="#047857" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <!-- 1. Sub-Hook Pill (Top of White Card) -->
+  <g transform="translate(85, 136)">
+    <rect x="0" y="0" width="730" height="34" rx="8" fill="#ecfdf5" />
+    <text x="16" y="22" font-size="14.5" font-weight="900" fill="#047857" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       위산 역류로 목이 화끈거리고 가래 낀 듯 답답한 헛기침
     </text>
   </g>
 
-  <!-- 2. Main Title (1 or 2 lines) -->
+  <!-- 2. Hero Main Title (Bold 33~36px Big Typography!) -->
   <g>
-    <text x="85" y="220" font-size="28" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.03em">역류성 후두염 · 목 이물감</text>
-    <text x="85" y="256" font-size="28" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.03em">담적병 한방 치료</text>
+    <text x="85" y="198" font-size="35" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.035em">역류성 후두염 · 목 이물감</text>
+    <text x="85" y="238" font-size="35" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.035em">담적병 한방 치료</text>
   </g>
 
   <!-- 3. Subtitle Description -->
   <g>
-    <text x="85" y="288" font-size="14" font-weight="800" fill="#334155" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+    <text x="85" y="274" font-size="14.5" font-weight="800" fill="#334155" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       위장 내 독소 담적(痰積)을 삭히고 손상된 성대 점막을 재생하는 보폐고
     </text>
   </g>
 
   <!-- 4. Subtle Dashed Divider Line -->
-  <line x1="85" y1="316" x2="815" y2="316" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6,6" />
+  <line x1="85" y1="298" x2="815" y2="298" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6,6" />
 
-  <!-- 5. Step 01 Card (Mint/Teal Accent) -->
-  <g transform="translate(85, 334)">
-    <rect x="0" y="0" width="730" height="110" rx="16" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5" />
-    <rect x="16" y="17" width="66" height="76" rx="12" fill="#e6fffa" />
-    <circle cx="49" cy="55" r="22" fill="#0d9488" />
-    <text x="49" y="62" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">1</text>
-    <text x="96" y="44" font-size="14.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <!-- 5. Step 01 Card (Mint/Teal Accent - Sleek & Compact) -->
+  <g transform="translate(85, 318)">
+    <rect x="0" y="0" width="730" height="106" rx="15" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5" />
+    <rect x="15" y="15" width="66" height="76" rx="12" fill="#e6fffa" />
+    <circle cx="48" cy="53" r="21" fill="#0d9488" />
+    <text x="48" y="60" font-size="19" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">1</text>
+    <text x="96" y="42" font-size="15.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       하부식도괄약근 이완 &amp; 인후두 점막 산 손상 진단
     </text>
-    <text x="96" y="74" font-size="14" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
+    <text x="96" y="72" font-size="14" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
       명치 답답함·잦은 트림·목 이물감·신물 역류 종합 평가
     </text>
   </g>
 
-  <!-- 6. Step 02 Card (Warm Amber Accent) -->
-  <g transform="translate(85, 460)">
-    <rect x="0" y="0" width="730" height="110" rx="16" fill="#fefce8" stroke="#fef08a" stroke-width="1.5" />
-    <rect x="16" y="17" width="66" height="76" rx="12" fill="#fef9c3" />
-    <circle cx="49" cy="55" r="22" fill="#d97706" />
-    <text x="49" y="62" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">2</text>
-    <text x="96" y="44" font-size="14.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <!-- 6. Step 02 Card (Warm Amber Accent - Sleek & Compact) -->
+  <g transform="translate(85, 438)">
+    <rect x="0" y="0" width="730" height="106" rx="15" fill="#fefce8" stroke="#fef08a" stroke-width="1.5" />
+    <rect x="15" y="15" width="66" height="76" rx="12" fill="#fef9c3" />
+    <circle cx="48" cy="53" r="21" fill="#d97706" />
+    <text x="48" y="60" font-size="19" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">2</text>
+    <text x="96" y="42" font-size="15.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       위장 담적 제거 한약 &amp; 수제 보폐고(補肺膏)
     </text>
-    <text x="96" y="74" font-size="13" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
+    <text x="96" y="72" font-size="13.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
       위장 연동 운동을 정상화하고 산으로 헐어버린 인후 점막 소염
     </text>
   </g>
 
-  <!-- 7. Step 03 Card (Cool Blue Accent) -->
-  <g transform="translate(85, 586)">
-    <rect x="0" y="0" width="730" height="110" rx="16" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" />
-    <rect x="16" y="17" width="66" height="76" rx="12" fill="#dbeafe" />
-    <circle cx="49" cy="55" r="22" fill="#2563eb" />
-    <text x="49" y="62" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">3</text>
-    <text x="96" y="44" font-size="16" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <!-- 7. Step 03 Card (Cool Blue Accent - Sleek & Compact) -->
+  <g transform="translate(85, 558)">
+    <rect x="0" y="0" width="730" height="106" rx="15" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" />
+    <rect x="15" y="15" width="66" height="76" rx="12" fill="#dbeafe" />
+    <circle cx="48" cy="53" r="21" fill="#2563eb" />
+    <text x="48" y="60" font-size="19" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">3</text>
+    <text x="96" y="42" font-size="16.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       복부 온열 뜸 &amp; 인후부 정밀 약침 치료
     </text>
-    <text x="96" y="74" font-size="14" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
+    <text x="96" y="72" font-size="14" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
       역류 경로를 차단하고 맑은 호흡과 편안한 목 상태 복원
     </text>
   </g>
 
   <!-- 8. Bottom Dark Navy Footer Capsule -->
-  <g transform="translate(85, 726)">
+  <g transform="translate(85, 688)">
     <rect x="0" y="0" width="730" height="48" rx="12" fill="#0f172a" />
     <text x="365" y="30" font-size="14.5" font-weight="800" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       해아림한의원 부평점 · 1:1 맞춤 통합진료 클리닉 (부평역 7번 출구 도보 5분)

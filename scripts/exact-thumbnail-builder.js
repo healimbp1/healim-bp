@@ -13,17 +13,17 @@ function escapeXML(str) {
     .trim();
 }
 
-// Smart Title Formatter with Big, Bold Typography (32~36px)
-function formatHeroTitle(rawTitle) {
+// Smart Title Formatter with Massive, Bold Typography (36~44px)
+function formatMegaTitle(rawTitle) {
   let clean = escapeXML(rawTitle)
     .replace(/ - 해아림한의원.*$/, '')
     .replace(/ - 해아림.*$/, '')
     .replace(/^[.*?]\s*/, '')
     .trim();
 
-  // If already concise 1 line (<= 16 chars)
-  if (clean.length <= 16 && !clean.includes(',') && !clean.includes('·')) {
-    return { lines: [clean], fontSize: 36, y1: 228 };
+  // If already concise 1 line (<= 14 chars)
+  if (clean.length <= 14 && !clean.includes(',') && !clean.includes('·')) {
+    return { lines: [clean], fontSize: 44, y1: 236 };
   }
 
   // 1. If contains comma
@@ -36,8 +36,8 @@ function formatHeroTitle(rawTitle) {
     l2 = l2.replace(/과 자동차보험/, ' · 자동차보험').trim();
 
     const maxLen = Math.max(l1.length, l2.length);
-    const fontSize = maxLen > 20 ? 30 : (maxLen > 16 ? 33 : 35);
-    return { lines: [l1, l2], fontSize, y1: 198, y2: 238 };
+    const fontSize = maxLen > 18 ? 36 : (maxLen > 15 ? 38 : 41);
+    return { lines: [l1, l2], fontSize, y1: 202, y2: 252 };
   }
 
   // 2. If contains middle dot '·'
@@ -47,15 +47,15 @@ function formatHeroTitle(rawTitle) {
       const l1 = parts[0];
       const l2 = parts[1];
       const maxLen = Math.max(l1.length, l2.length);
-      const fontSize = maxLen > 20 ? 30 : (maxLen > 16 ? 33 : 35);
-      return { lines: [l1, l2], fontSize, y1: 198, y2: 238 };
+      const fontSize = maxLen > 18 ? 36 : (maxLen > 15 ? 38 : 41);
+      return { lines: [l1, l2], fontSize, y1: 202, y2: 252 };
     } else if (parts.length >= 3) {
       const mid = Math.ceil(parts.length / 2);
       const l1 = parts.slice(0, mid).join(' · ');
       const l2 = parts.slice(mid).join(' · ');
       const maxLen = Math.max(l1.length, l2.length);
-      const fontSize = maxLen > 20 ? 30 : (maxLen > 16 ? 33 : 35);
-      return { lines: [l1, l2], fontSize, y1: 198, y2: 238 };
+      const fontSize = maxLen > 18 ? 36 : (maxLen > 15 ? 38 : 41);
+      return { lines: [l1, l2], fontSize, y1: 202, y2: 252 };
     }
   }
 
@@ -77,12 +77,12 @@ function formatHeroTitle(rawTitle) {
   }
 
   if (!l2) {
-    return { lines: [l1], fontSize: 34, y1: 228 };
+    return { lines: [l1], fontSize: 40, y1: 236 };
   }
 
   const maxLen = Math.max(l1.length, l2.length);
-  const fontSize = maxLen > 20 ? 30 : (maxLen > 16 ? 33 : 35);
-  return { lines: [l1, l2], fontSize, y1: 198, y2: 238 };
+  const fontSize = maxLen > 18 ? 36 : (maxLen > 15 ? 38 : 41);
+  return { lines: [l1, l2], fontSize, y1: 202, y2: 252 };
 }
 
 // 141개 전 칼럼 1:1 완벽 맞춤형 썸네일 데이터베이스 (100% 무결점)
@@ -2656,7 +2656,7 @@ function generateCleanCardSVG(params) {
   const cleanSubHook = escapeXML(cfg.subHook || params.subHook || '만성화되기 전 원인부터 바로잡는 1:1 맞춤 진료');
   const cleanSubTitle = escapeXML(cfg.subTitle || params.subTitle || '정밀 진단과 비수술 한방 1:1 맞춤 치료 솔루션');
   
-  const titleInfo = formatHeroTitle(cfg.title || params.title || '해아림한의원 부평점 통합진료');
+  const titleInfo = formatMegaTitle(cfg.title || params.title || '해아림한의원 부평점 통합진료');
   
   const step1 = cfg.step1 || params.step1 || { title: '근본 원인 및 손상 부위 정밀 진단', desc: '이학적 검진 및 증상별 원인 분석' };
   const step2 = cfg.step2 || params.step2 || { title: '맞춤 한방 침구 & 정밀 약침 치료', desc: '통증 완화 및 염증 배출 집중 케어' };
@@ -2665,23 +2665,23 @@ function generateCleanCardSVG(params) {
   // SubHook font size
   const subHookFontSize = cleanSubHook.length > 34 ? 13.5 : (cleanSubHook.length > 26 ? 14.5 : 15.5);
   // SubTitle font size
-  const subTitleFontSize = cleanSubTitle.length > 36 ? 14.5 : 16;
+  const subTitleFontSize = cleanSubTitle.length > 36 ? 15 : 16.5;
 
-  // Title render block (Bold, High-Impact 33~36px!)
+  // Title render block (Massive 36~44px Big Typography!)
   let titleSVG = '';
   if (titleInfo.lines.length === 1) {
-    titleSVG = `<text x="85" y="${titleInfo.y1}" font-size="${titleInfo.fontSize}" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.035em">${titleInfo.lines[0]}</text>`;
+    titleSVG = `<text x="85" y="${titleInfo.y1}" font-size="${titleInfo.fontSize}" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.04em">${titleInfo.lines[0]}</text>`;
   } else {
     titleSVG = `<text x="85" y="${titleInfo.y1}" font-size="${titleInfo.fontSize}" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.035em">${titleInfo.lines[0]}</text>
     <text x="85" y="${titleInfo.y2}" font-size="${titleInfo.fontSize}" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.035em">${titleInfo.lines[1]}</text>`;
   }
 
-  // Step formatting helper - Compact, sleek cards
+  // Step formatting helper
   function formatStepText(tStr, dStr) {
     const t = escapeXML(tStr);
     const d = escapeXML(dStr);
-    const tSize = t.length > 26 ? 15.5 : (t.length > 20 ? 16.5 : 18);
-    const dSize = d.length > 38 ? 12.5 : (d.length > 30 ? 13.5 : 14);
+    const tSize = t.length > 26 ? 16 : (t.length > 20 ? 17.5 : 19);
+    const dSize = d.length > 38 ? 13 : (d.length > 30 ? 14 : 14.5);
     return { t, d, tSize, dSize };
   }
 
@@ -2699,7 +2699,7 @@ function generateCleanCardSVG(params) {
 
     <!-- Card Shadow -->
     <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.35" />
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000000" flood-opacity="0.38" />
     </filter>
   </defs>
 
@@ -2707,7 +2707,7 @@ function generateCleanCardSVG(params) {
   <rect x="0" y="0" width="900" height="960" rx="36" fill="url(#bgGrad)" />
 
   <!-- Top Floating Pill (Teal / Forest Green) -->
-  <g transform="translate(450, 56)">
+  <g transform="translate(450, 48)">
     <rect x="-210" y="-22" width="420" height="44" rx="22" fill="#0d9488" />
     <text x="0" y="6" font-size="16.5" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       ${cleanCategory}
@@ -2716,78 +2716,78 @@ function generateCleanCardSVG(params) {
 
   <!-- Inner Pure White Card -->
   <g filter="url(#cardShadow)">
-    <rect x="45" y="100" width="810" height="825" rx="30" fill="#ffffff" />
+    <rect x="45" y="90" width="810" height="835" rx="32" fill="#ffffff" />
   </g>
 
   <!-- 1. Sub-Hook Pill (Top of White Card) -->
-  <g transform="translate(85, 136)">
-    <rect x="0" y="0" width="730" height="34" rx="8" fill="#ecfdf5" />
-    <text x="16" y="22" font-size="${subHookFontSize}" font-weight="900" fill="#047857" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <g transform="translate(85, 125)">
+    <rect x="0" y="0" width="730" height="36" rx="8" fill="#ecfdf5" />
+    <text x="16" y="23" font-size="${subHookFontSize}" font-weight="900" fill="#047857" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       ${cleanSubHook}
     </text>
   </g>
 
-  <!-- 2. Hero Main Title (Bold 33~36px Big Typography!) -->
+  <!-- 2. Hero Main Title (Massive 36~44px Big Typography!) -->
   <g>
     ${titleSVG}
   </g>
 
   <!-- 3. Subtitle Description -->
   <g>
-    <text x="85" y="274" font-size="${subTitleFontSize}" font-weight="800" fill="#334155" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+    <text x="85" y="295" font-size="${subTitleFontSize}" font-weight="800" fill="#334155" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       ${cleanSubTitle}
     </text>
   </g>
 
   <!-- 4. Subtle Dashed Divider Line -->
-  <line x1="85" y1="298" x2="815" y2="298" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6,6" />
+  <line x1="85" y1="324" x2="815" y2="324" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6,6" />
 
-  <!-- 5. Step 01 Card (Mint/Teal Accent - Sleek & Compact) -->
-  <g transform="translate(85, 318)">
-    <rect x="0" y="0" width="730" height="106" rx="15" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5" />
-    <rect x="15" y="15" width="66" height="76" rx="12" fill="#e6fffa" />
-    <circle cx="48" cy="53" r="21" fill="#0d9488" />
-    <text x="48" y="60" font-size="19" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">1</text>
-    <text x="96" y="42" font-size="${s1.tSize}" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <!-- 5. Step 01 Card (Mint/Teal Accent - Positioned Lower) -->
+  <g transform="translate(85, 348)">
+    <rect x="0" y="0" width="730" height="112" rx="16" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5" />
+    <rect x="16" y="18" width="68" height="76" rx="12" fill="#e6fffa" />
+    <circle cx="50" cy="56" r="22" fill="#0d9488" />
+    <text x="50" y="63" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">1</text>
+    <text x="98" y="44" font-size="${s1.tSize}" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       ${s1.t}
     </text>
-    <text x="96" y="72" font-size="${s1.dSize}" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
+    <text x="98" y="76" font-size="${s1.dSize}" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
       ${s1.d}
     </text>
   </g>
 
-  <!-- 6. Step 02 Card (Warm Amber Accent - Sleek & Compact) -->
-  <g transform="translate(85, 438)">
-    <rect x="0" y="0" width="730" height="106" rx="15" fill="#fefce8" stroke="#fef08a" stroke-width="1.5" />
-    <rect x="15" y="15" width="66" height="76" rx="12" fill="#fef9c3" />
-    <circle cx="48" cy="53" r="21" fill="#d97706" />
-    <text x="48" y="60" font-size="19" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">2</text>
-    <text x="96" y="42" font-size="${s2.tSize}" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <!-- 6. Step 02 Card (Warm Amber Accent - Positioned Lower) -->
+  <g transform="translate(85, 478)">
+    <rect x="0" y="0" width="730" height="112" rx="16" fill="#fefce8" stroke="#fef08a" stroke-width="1.5" />
+    <rect x="16" y="18" width="68" height="76" rx="12" fill="#fef9c3" />
+    <circle cx="50" cy="56" r="22" fill="#d97706" />
+    <text x="50" y="63" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">2</text>
+    <text x="98" y="44" font-size="${s2.tSize}" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       ${s2.t}
     </text>
-    <text x="96" y="72" font-size="${s2.dSize}" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
+    <text x="98" y="76" font-size="${s2.dSize}" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
       ${s2.d}
     </text>
   </g>
 
-  <!-- 7. Step 03 Card (Cool Blue Accent - Sleek & Compact) -->
-  <g transform="translate(85, 558)">
-    <rect x="0" y="0" width="730" height="106" rx="15" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" />
-    <rect x="15" y="15" width="66" height="76" rx="12" fill="#dbeafe" />
-    <circle cx="48" cy="53" r="21" fill="#2563eb" />
-    <text x="48" y="60" font-size="19" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">3</text>
-    <text x="96" y="42" font-size="${s3.tSize}" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <!-- 7. Step 03 Card (Cool Blue Accent - Positioned Lower) -->
+  <g transform="translate(85, 608)">
+    <rect x="0" y="0" width="730" height="112" rx="16" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" />
+    <rect x="16" y="18" width="68" height="76" rx="12" fill="#dbeafe" />
+    <circle cx="50" cy="56" r="22" fill="#2563eb" />
+    <text x="50" y="63" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">3</text>
+    <text x="98" y="44" font-size="${s3.tSize}" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       ${s3.t}
     </text>
-    <text x="96" y="72" font-size="${s3.dSize}" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
+    <text x="98" y="76" font-size="${s3.dSize}" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
       ${s3.d}
     </text>
   </g>
 
   <!-- 8. Bottom Dark Navy Footer Capsule -->
-  <g transform="translate(85, 688)">
-    <rect x="0" y="0" width="730" height="48" rx="12" fill="#0f172a" />
-    <text x="365" y="30" font-size="14.5" font-weight="800" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <g transform="translate(85, 744)">
+    <rect x="0" y="0" width="730" height="52" rx="14" fill="#0f172a" />
+    <text x="365" y="32" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       해아림한의원 부평점 · 1:1 맞춤 통합진료 클리닉 (부평역 7번 출구 도보 5분)
     </text>
   </g>
