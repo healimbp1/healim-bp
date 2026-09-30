@@ -36,7 +36,8 @@ async function main() {
   // 3. Cloudflare Pages로 직접 배포
   console.log('\n▶ 3단계: Cloudflare Pages 프로덕션 배포 중...');
   try {
-    execSync('npx wrangler pages deploy public --project-name=healimbp --branch=main --commit-dirty=true', {
+    const npxCmd = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+    execSync(`${npxCmd} wrangler pages deploy public --project-name=healimbp --branch=main --commit-dirty=true`, {
       cwd: path.join(__dirname, '..'),
       encoding: 'utf8',
       stdio: 'inherit'
