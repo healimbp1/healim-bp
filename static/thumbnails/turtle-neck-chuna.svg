@@ -16,96 +16,89 @@
   <rect x="0" y="0" width="900" height="960" rx="36" fill="url(#bgGrad)" />
 
   <!-- Top Floating Pill (Teal / Forest Green) -->
-  <g transform="translate(450, 64)">
-    <rect x="-190" y="-22" width="380" height="44" rx="22" fill="#0d9488" />
-    <text x="0" y="6" font-size="16.5" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <g transform="translate(450, 60)">
+    <rect x="-210" y="-22" width="420" height="44" rx="22" fill="#0d9488" />
+    <text x="0" y="6" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       척추·관절 &amp; 추나 클리닉
     </text>
   </g>
 
   <!-- Inner Pure White Card -->
   <g filter="url(#cardShadow)">
-    <rect x="45" y="112" width="810" height="804" rx="32" fill="#ffffff" />
+    <rect x="45" y="105" width="810" height="810" rx="28" fill="#ffffff" />
   </g>
 
   <!-- Content inside White Card -->
-  <!-- 1. Sub-Hook Pill (Light Mint Green Background + Dark Green Bold Text) -->
-  <g transform="translate(90, 155)">
-    <rect x="0" y="0" width="620" height="38" rx="8" fill="#ecfdf5" />
-    <text x="16" y="25" font-size="15.5" font-weight="900" fill="#047857" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <!-- 1. Sub-Hook Pill -->
+  <g transform="translate(85, 145)">
+    <rect x="0" y="0" width="730" height="38" rx="8" fill="#ecfdf5" />
+    <text x="16" y="24" font-size="15" font-weight="900" fill="#047857" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       모니터 앞 거북목과 뻐근한 뒷목, 만성 두통
     </text>
   </g>
 
-  <!-- 2. Main Title (High-Impact Crisp Pitch Black) -->
-  <g transform="translate(90, 235)">
-    <text font-size="34" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.03em">
-      부평 거북목 · 일자목 증후군 교정 추나
-    </text>
+  <!-- 2. Main Title (1 or 2 lines) -->
+  <g>
+    <text x="85" y="220" font-size="28" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.03em">부평 거북목</text>
+    <text x="85" y="256" font-size="28" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.03em">일자목 증후군 교정 추나</text>
   </g>
 
   <!-- 3. Subtitle Description -->
-  <g transform="translate(90, 275)">
-    <text font-size="18.5" font-weight="800" fill="#334155" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <g>
+    <text x="85" y="288" font-size="15.5" font-weight="800" fill="#334155" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       굳어진 경추 C커브를 복원하고 뇌 혈류를 개선하는 체형 교정
     </text>
   </g>
 
   <!-- 4. Subtle Dashed Divider Line -->
-  <line x1="90" y1="305" x2="810" y2="305" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6,6" />
+  <line x1="85" y1="316" x2="815" y2="316" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="6,6" />
 
   <!-- 5. Step 01 Card (Mint/Teal Accent) -->
-  <g transform="translate(90, 330)">
-    <rect x="0" y="0" width="720" height="114" rx="16" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5" />
-    <!-- Number Badge Icon -->
-    <rect x="18" y="20" width="74" height="74" rx="12" fill="#e6fffa" />
-    <circle cx="55" cy="57" r="24" fill="#0d9488" />
-    <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">1</text>
-    <!-- Card Text -->
-    <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <g transform="translate(85, 334)">
+    <rect x="0" y="0" width="730" height="110" rx="16" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5" />
+    <rect x="16" y="17" width="66" height="76" rx="12" fill="#e6fffa" />
+    <circle cx="49" cy="55" r="22" fill="#0d9488" />
+    <text x="49" y="62" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">1</text>
+    <text x="96" y="44" font-size="14.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       경추 C커브 소실 &amp; 흉추 후만 정밀 체형 분석
     </text>
-    <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
+    <text x="96" y="74" font-size="14" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
       상부 승모근·견갑거근 단축 긴장도 측정
     </text>
   </g>
 
   <!-- 6. Step 02 Card (Warm Amber Accent) -->
-  <g transform="translate(90, 462)">
-    <rect x="0" y="0" width="720" height="114" rx="16" fill="#fefce8" stroke="#fef08a" stroke-width="1.5" />
-    <!-- Number Badge Icon -->
-    <rect x="18" y="20" width="74" height="74" rx="12" fill="#fef9c3" />
-    <circle cx="55" cy="57" r="24" fill="#d97706" />
-    <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">2</text>
-    <!-- Card Text -->
-    <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <g transform="translate(85, 460)">
+    <rect x="0" y="0" width="730" height="110" rx="16" fill="#fefce8" stroke="#fef08a" stroke-width="1.5" />
+    <rect x="16" y="17" width="66" height="76" rx="12" fill="#fef9c3" />
+    <circle cx="49" cy="55" r="22" fill="#d97706" />
+    <text x="49" y="62" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">2</text>
+    <text x="96" y="44" font-size="14.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       경추 이완 추나 &amp; 후두하근 소염약침 및 심부 전침 요법
     </text>
-    <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
+    <text x="96" y="74" font-size="14" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
       굳은 목 관절을 열고 뇌 혈류 공급 정상화
     </text>
   </g>
 
   <!-- 7. Step 03 Card (Cool Blue Accent) -->
-  <g transform="translate(90, 594)">
-    <rect x="0" y="0" width="720" height="114" rx="16" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" />
-    <!-- Number Badge Icon -->
-    <rect x="18" y="20" width="74" height="74" rx="12" fill="#dbeafe" />
-    <circle cx="55" cy="57" r="24" fill="#2563eb" />
-    <text x="55" y="65" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">3</text>
-    <!-- Card Text -->
-    <text x="110" y="46" font-size="19.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <g transform="translate(85, 586)">
+    <rect x="0" y="0" width="730" height="110" rx="16" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" />
+    <rect x="16" y="17" width="66" height="76" rx="12" fill="#dbeafe" />
+    <circle cx="49" cy="55" r="22" fill="#2563eb" />
+    <text x="49" y="62" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif">3</text>
+    <text x="96" y="44" font-size="17.5" font-weight="900" fill="#0f172a" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       1:1 맞춤 근막 강화 침구 치료
     </text>
-    <text x="110" y="76" font-size="14.5" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
+    <text x="96" y="74" font-size="14" font-weight="600" fill="#475569" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.01em">
       목디스크 진행 차단 및 바른 척추 정렬 복원
     </text>
   </g>
 
   <!-- 8. Bottom Dark Navy Footer Capsule -->
-  <g transform="translate(90, 735)">
-    <rect x="0" y="0" width="720" height="54" rx="14" fill="#0f172a" />
-    <text x="360" y="33" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
+  <g transform="translate(85, 726)">
+    <rect x="0" y="0" width="730" height="48" rx="12" fill="#0f172a" />
+    <text x="365" y="30" font-size="14.5" font-weight="800" fill="#ffffff" text-anchor="middle" font-family="Pretendard, 'Malgun Gothic', sans-serif" letter-spacing="-0.02em">
       해아림한의원 부평점 · 1:1 맞춤 통합진료 클리닉 (부평역 7번 출구 도보 5분)
     </text>
   </g>
