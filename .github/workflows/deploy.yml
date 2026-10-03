@@ -1,10 +1,10 @@
 name: Deploy Hugo site & Auto Publish Columns
 
 on:
-  push:
-    branches: ["main", "master"]
   schedule:
     - cron: '0 * * * *'   # 매 시간 정각 자동 발행 검사 (00:00 UTC = 09:00 KST, 04:00 UTC = 13:00 KST, 08:00 UTC = 17:00 KST, 12:00 UTC = 21:00 KST 등)
+  push:
+    branches: ["main", "master"]
   workflow_dispatch:
 
 permissions:
@@ -50,7 +50,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/publish-history.json static/thumbnails/
           if ! git diff --cached --quiet; then
-            git commit -m "chore(auto-publish): sync publish history and thumbnails [skip ci]"
+            git commit -m "chore(auto-publish): sync publish history and thumbnails"
             git push origin HEAD:main || echo "Push failed or already up to date"
           else
             echo "No new publish changes to commit"
@@ -73,12 +73,24 @@ jobs:
           HUGO_ENVIRONMENT: production
         run: |
           hugo \
-            --gc \
+            --cleanDestinationDir \
             --minify \
-            --buildFuture \
             --baseURL "https://healim-bp.com/"
 
-      - name: Setup Pages
+      - name: Deploy to Cloudflare Pages (Production)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || 'c8e59a8e577d3d00aaddd908e16255d0' }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::warning ::CLOUDFLARE_API_TOKEN is not set in GitHub Secrets. Cloudflare deploy skipped. (Please add CLOUDFLARE_API_TOKEN to repository secrets for 24/7 cloud deployments)"
+          else
+            echo "🚀 Deploying to Cloudflare Pages project 'healim-clinic'..."
+            npx wrangler pages deploy public --project-name=healim-clinic --branch=main --commit-dirty=true
+            echo "🎉 Cloudflare Pages deployment completed successfully!"
+          fi
+
+      - name: Setup Pages (GitHub Pages Backup)
         id: pages
         continue-on-error: true
         uses: actions/configure-pages@v5
