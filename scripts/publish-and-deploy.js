@@ -49,6 +49,31 @@ async function main() {
     console.error('❌ Cloudflare 배포 실패:', err.message);
     process.exit(1);
   }
+
+  // 4. Git 변경사항 커밋 및 원격 저장소 동기화
+  console.log('\n▶ 4단계: GitHub 원격 저장소 히스토리 동기화 중...');
+  try {
+    execSync('git add data/publish-history.json static/thumbnails/', {
+      cwd: path.join(__dirname, '..'),
+      encoding: 'utf8'
+    });
+    const diff = execSync('git status --porcelain data/publish-history.json static/thumbnails/', {
+      cwd: path.join(__dirname, '..'),
+      encoding: 'utf8'
+    });
+    if (diff.trim().length > 0) {
+      execSync('git commit -m "chore(auto-publish): sync publish history and thumbnails" && git push origin main', {
+        cwd: path.join(__dirname, '..'),
+        encoding: 'utf8',
+        stdio: 'inherit'
+      });
+      console.log('✅ GitHub 동기화 완료!');
+    } else {
+      console.log('ℹ️ 동기화할 새로운 발행 히스토리가 없습니다.');
+    }
+  } catch (e) {
+    console.warn('⚠️ Git 동기화 중 경고 (배포는 이미 완료됨):', e.message);
+  }
 }
 
 main().catch(err => {
